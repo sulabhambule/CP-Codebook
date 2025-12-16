@@ -1,0 +1,154 @@
+\ProvidesPackage{codebook}
+
+
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{fancyhdr}
+\RequirePackage{fontspec}
+\RequirePackage{graphicx}
+\RequirePackage[xetex, pdfusetitle]{hyperref}
+\RequirePackage{minted}
+\RequirePackage{multicol}
+\RequirePackage{titlesec}
+\RequirePackage{tocbasic}
+\RequirePackage[x11names]{xcolor}
+
+% package options
+\newif\ifchinese\chinesefalse
+\DeclareOption{chinese}{\chinesetrue}
+\newif\ifmono\monofalse
+\DeclareOption{mono}{\monotrue}
+\ProcessOptions\relax
+
+\ifchinese
+    \RequirePackage[CheckSingle, CJKmath]{xeCJK}
+    \setCJKmainfont{Noto Sans CJK TC}
+    \XeTeXlinebreaklocale "zh"
+    \XeTeXlinebreakskip = 0pt plus 2pt
+\fi
+
+\ifmono
+    \setmainfont[
+        ItalicFont={Liberation Mono},
+        BoldItalicFont={Liberation Mono Bold}
+    ]{Liberation Mono}
+    \setmonofont{Liberation Mono}
+\else
+    \setmonofont{Liberation Mono}
+\fi
+
+
+\setlength{\topmargin}{0pt}
+\setlength{\headsep}{10pt}
+\setlength{\textheight}{780pt}
+\setlength{\footskip}{20pt}
+\setlength{\voffset}{-60pt}
+\setlength{\textwidth}{560pt}
+\setlength{\marginparsep}{0pt}
+\setlength{\marginparwidth}{0pt}
+\setlength{\marginparpush}{0pt}
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\hoffset}{-53pt}
+\setlength{\columnsep}{15pt}
+\setlength{\columnseprule}{0pt}
+\setlength{\parskip}{2.4pt}
+\setlength{\parindent}{0pt}
+\setlength{\lineskip}{1.2pt}
+\setlength{\extrarowheight}{8pt}
+
+
+\definecolor{mygray}{rgb}{0.52, 0.52, 0.52}
+\definecolor{myred}{rgb}{0.5, 0.15, 0.07}
+
+
+\titlespacing\section
+{0pt}{6pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing\subsection
+{0pt}{2pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+\titlespacing\subsubsection
+{0pt}{2pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
+
+\titleformat\section
+{\vspace{1.2ex}{\color{mygray}{\titlerule}}\vspace{.2ex}\large\bfseries}
+{\thesection.}{1em}{}
+\titleformat\subsection
+{\normalsize\bfseries}{\thesubsection.}{1em}{}
+\titleformat\subsubsection
+{\normalsize\bfseries}{\thesubsubsection.}{1em}{}
+
+\setlist{
+    leftmargin=10pt,
+    labelindent=12pt,
+    labelsep=2pt,
+    topsep=0pt plus 2pt minus 0pt,
+    partopsep=-2pt plus 2pt minus 0pt,
+    parsep=-2pt plus 2pt minus 0pt,
+    itemsep=1pt plus 2pt minus 0pt
+}
+
+
+\setminted{
+    breaklines=false,
+    fontsize=\fontsize{7.2pt}{8.5pt}\selectfont,
+    frame=single,
+    numbers=left,
+    numbersep=2pt,
+    mathescape=true,
+    rulecolor=mygray,
+    stepnumber=2,
+    stepnumberfromfirst,
+    tabsize=2
+}
+
+\renewcommand{\theFancyVerbLine}{%
+\textcolor{mygray}{\scriptsize{\arabic{FancyVerbLine}}}}
+
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\renewcommand{\contentsname}{Contents\vspace{-1.5ex}}
+
+% config commands
+\newcommand{\team}[2]{
+	\def\@teamname{#1}
+    \def\@teaminstitution{#2}
+}
+\newcommand{\codetheme}[1]{
+	\usemintedstyle{#1}
+}
+
+% defaults
+\team{Team name}{School name}
+\codetheme{default}
+
+\title{Codebook for \@teamname}
+\author{\@teamname}
+
+\fancyhead[L]{\bfseries\small \@teamname\ (\@teaminstitution)}
+\fancyhead[R]{\bfseries\small Page \thepage}
+\fancyfoot[C]{{
+    \footnotesize\ttfamily
+    https://github.com/toxicpie/nacl
+}}
+
+\newcommand\requires[1]{%
+\vspace{-1.6ex}%
+\begin{flushright}Requires: #1\end{flushright}%
+\vspace{-3.4ex}%
+}
+
+\newcommand\inputcode[3]{%
+\immediate\write18{python3 preprocessor.py "#2" "#3"}%
+\vspace{-0.6ex}%
+\inputminted{#1}{#3}%
+\vspace{-3ex}%
+}
+
+\newcommand\icode[1]{%
+\texttt{\textcolor{myred}{\scriptsize{#1}}}%
+}
