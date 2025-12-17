@@ -13,8 +13,6 @@ include:
         - misc/splitmix64.hpp
       - '<random>':
         - misc/random.java
-      - x86 Stack Hack:
-        - misc/stack-size.hpp
     - Algorithms:
       - Bit Hacks:
         - misc/bit-hacks.hpp
@@ -24,25 +22,29 @@ include:
         - misc/hilbert.hpp
       - Infinite Grid Knight Distance:
         - misc/knight.hpp
-      - Poker Hand:
-        - misc/poker.hpp
+      - Palindrome Subsequence:
+        - misc/palSubsequence.java
       - Longest Increasing Subsequence:
-        - misc/lis.hpp
+        - misc/lis.java
       - Mo's Algorithm on Tree:
         - misc/mo-tree.hpp
   - Data Structures:
-    - Segment Tree (ZKW):
-      - ds/segtree.hpp
-    - Line Container:
-      - ds/line-container.hpp
-    - Li-Chao Tree:
-      - ds/li-chao.java
+    - Fenwick Tree:
+      - ds/FT.java
+    - Segment Tree (SIMPLE):
+      - ds/SegTreeSimple.java
+    - Lazy Segment Tree (SIMPLE):
+      - ds/LazySimple.java
+    - Binary Lifting (1 based):
+      - ds/BinaryLiftting.java
+    - DSU:
+      - ds/DSU.java
+    - SparseTable:
+      - ds/SparseTable.java
+    - EulerTour:
+      - ds/euler_tour.java
     - Heavy-Light Decomposition:
       - ds/hld.hpp
-    - Wavelet Matrix:
-      - ds/wavelet-matrix.hpp
-    - Link-Cut Tree:
-      - ds/lct.hpp
   - Graph:
     - Modeling:
       - graph/model.tex
@@ -79,7 +81,7 @@ include:
     - Triconnected Components:
       - graph/tcc.hpp
     - Centroid Decomposition:
-      - graph/centroid-decomposition.hpp
+      - graph/centroid_decomposition.java
     - Minimum Mean Cycle:
       - graph/min-mean-cycle.hpp
     - Directed MST:
@@ -98,9 +100,9 @@ include:
       - Miller-Rabin:
         - math/number-theory/miller-rabin.hpp
       - Linear Sieve:
-        - math/number-theory/sieve.hpp
-      - Get Factors:
-        - math/number-theory/all-factors.hpp
+        - math/number-theory/prime_sieve.java
+      - Get Factors and SPF Fucn: 
+        - math/number-theory/allfactor.java
       - Binary GCD:
         - math/number-theory/binary-gcd.hpp
       - Extended GCD:
