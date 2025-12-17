@@ -1,6 +1,6 @@
-# NaCl - NCTU_a Contest library
+# WATOAC-CL - WATOAC Contest library
 
-ICPC codebook of the team NCTU_a.
+ICPC codebook of the team WATOAC.
 
 ## Building
 
@@ -60,4 +60,4 @@ cycle. These behaviors can be changed in the config file.
 ## License
 
 See [COPYING](COPYING.md) for details.
-# WATOACCP
+# CP-Codebook

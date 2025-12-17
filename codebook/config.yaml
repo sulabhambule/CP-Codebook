@@ -4,25 +4,15 @@ include:
       - Makefile:
         - misc/Makefile
     - 'How Did We Get Here?':
-      - Macros:
-        - misc/speed/macros.tex
-        - misc/speed/macros.hpp
       - Fast I/O:
-        - misc/speed/fast-io.hpp
-        - Kotlin:
-          - misc/speed/kotlin-io.kt
-      - constexpr:
-        - misc/speed/constexpr.tex
-        - misc/speed/constexpr.hpp
-      - Bump Allocator:
-        - misc/speed/bump-allocator.hpp
+        - misc/speed/fast_io.java
     - Tools:
       - Floating Point Binary Search:
         - misc/float-binary-search.hpp
       - SplitMix64:
         - misc/splitmix64.hpp
       - '<random>':
-        - misc/random.hpp
+        - misc/random.java
       - x86 Stack Hack:
         - misc/stack-size.hpp
     - Algorithms:
@@ -41,8 +31,6 @@ include:
       - Mo's Algorithm on Tree:
         - misc/mo-tree.hpp
   - Data Structures:
-    - GNU PBDS:
-      - ds/pbds.hpp
     - Segment Tree (ZKW):
       - ds/segtree.hpp
     - Line Container:
@@ -196,8 +184,6 @@ include:
       - geometry/point-inclusion.hpp
       - Convex Version:
         - geometry/convex-inclusion.hpp
-      - Offline Multiple Points Version:
-        - geometry/multi-inclusion.hpp
     - Closest Pair:
       - geometry/closest-pair.hpp
     - Minimum Enclosing Circle:
